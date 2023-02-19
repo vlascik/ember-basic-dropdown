@@ -2,7 +2,7 @@
 
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 2020,
     sourceType: 'module',
@@ -10,11 +10,13 @@ module.exports = {
       legacyDecorators: true,
     },
   },
-  plugins: ['ember'],
+  plugins: ['ember', '@typescript-eslint', 'prettier'],
   extends: [
     'eslint:recommended',
     'plugin:ember/recommended',
     'plugin:prettier/recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
   ],
   env: {
     browser: true,
@@ -50,6 +52,11 @@ module.exports = {
       env: {
         browser: false,
         node: true,
+      },
+      rules: {
+        'node/no-unsupported-features/es-syntax': 'warn',
+        '@typescript-eslint/no-var-requires': 'warn',
+        '@typescript-eslint/no-empty-function': 'warn',
       },
       plugins: ['node'],
       extends: ['plugin:node/recommended'],

@@ -1,7 +1,4 @@
-export default function hasMoved(
-  endEvent: TouchEvent,
-  moveEvent?: TouchEvent
-): boolean {
+export default function hasMoved(endEvent: TouchEvent, moveEvent?: TouchEvent): boolean {
   if (!moveEvent) {
     return false;
   }
